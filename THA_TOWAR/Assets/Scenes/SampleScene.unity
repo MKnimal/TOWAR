@@ -1015,7 +1015,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88622
+  m_Name: pb_Mesh26718
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2797,7 +2797,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88756
+  m_Name: pb_Mesh26848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4875,7 +4875,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88784
+  m_Name: pb_Mesh26876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6212,7 +6212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88636
+  m_Name: pb_Mesh26732
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6674,7 +6674,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88826
+  m_Name: pb_Mesh26918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6838,7 +6838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88798
+  m_Name: pb_Mesh26890
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7236,6 +7236,7 @@ GameObject:
   - component: {fileID: 1600658813}
   - component: {fileID: 1600658812}
   - component: {fileID: 1600658811}
+  - component: {fileID: 1600658816}
   - component: {fileID: 1600658810}
   - component: {fileID: 1600658814}
   - component: {fileID: 1600658815}
@@ -7270,11 +7271,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600658809}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6700003, y: 1.9, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6700003, y: 2.0117583, z: 0.20000005}
+  m_Center: {x: 0, y: -0.055879384, z: 0}
 --- !u!212 &1600658812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7378,6 +7379,19 @@ MonoBehaviour:
   true_speed: 850
   jump_speed: 300
   jump_movement_speed: 50
+--- !u!65 &1600658816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600658809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6700003, y: 1.9, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1606155818
 GameObject:
   m_ObjectHideFlags: 0
@@ -7484,7 +7498,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88674
+  m_Name: pb_Mesh26770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8475,7 +8489,7 @@ Transform:
   m_GameObject: {fileID: 2119836242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.06, y: 0.21, z: -49.64}
-  m_LocalScale: {x: 1.4461, y: 1, z: 0.7126}
+  m_LocalScale: {x: 1.4461, y: 3.7908, z: 0.7126}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
