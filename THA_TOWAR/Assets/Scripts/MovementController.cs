@@ -6,7 +6,8 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     //Crea el objeto rigidbody
-    private new Rigidbody rigidbody;
+    //private new Rigidbody rigidbody;
+
     //Variable de velocidad
     public float speed = 850f;
     public float true_speed = 850f;
@@ -18,7 +19,7 @@ public class MovementController : MonoBehaviour
     {
         Debug.Log("Inicializando");
         //Guarda el objeto Rigidbody en una variable
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
