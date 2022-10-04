@@ -9,38 +9,34 @@ public class MovementController : MonoBehaviour
     //private new Rigidbody rigidbody;
 
     //Variable de velocidad
-    public float speed = 850f;
-    public float true_speed = 850f;
+    public float varSpeed = 850f;
+    public float trueSpeed = 850f;
     bool canJump;
-    public float jump_speed = 50f;
-    public float jump_movement_speed = 50f;
+    public float jumpSpeed = 500f;
+    public float jumpMovSpeed = 500f;
 
     void Start()
     {
         Debug.Log("Inicializando");
-        //Guarda el objeto Rigidbody en una variable
-        rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float varSalto;
         //Obtenemos el parametro de las teclas "A", "D", "<-" y "->"
-        float hor = Input.GetAxisRaw("Horizontal");
-        //Verificamos que no este vacio
-        if (hor != 0.0f)
-        {
+        float varInput = Input.GetAxisRaw("Horizontal");
+        varSalto = Input.GetAxisRaw("Vertical");
             //Obtenemos la direccion del vector
-            int direction = Direction(hor);
+            int direction = Direction(varInput);
             //añadimos un vector tridimencional a nuestro rigidbody para generar movimiento
-            rigidbody.AddForce(new Vector3(0, 0, (direction * speed) * Time.deltaTime));
-        }
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, (direction * varSpeed) * Time.deltaTime));
         //Salto
-        if(Input.GetKeyDown("up") && canJump){
-                Debug.Log("salto");
+        if((varSalto > 0) && canJump){
+                Debug.Log("Salto" + varSalto);
                 canJump = false;
-                speed = jump_movement_speed;
-                rigidbody.AddForce(new Vector3(0, jump_speed, 0));
+                varSpeed = jumpMovSpeed;
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, (jumpSpeed * varSalto), 0));
         }
 
     }
@@ -48,17 +44,27 @@ public class MovementController : MonoBehaviour
     //Determinamos la direccion en la que ira el personaje
     private int Direction(float hor)
     {
-        if (hor < 0){/*Izquierda*/return 1;}
-        else{/*Derecha*/return -1;}
+        if (hor < 0){
+            //Izquierda
+            return 1;
+        }
+        else{
+            if (hor == 0){
+                //Neutral
+                return 0;
+            }
+            else{
+                //Derecha
+                return -1;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {
-        float hor = Input.GetAxisRaw("Horizontal");
         if (collision.transform.tag == "ground"){
-                rigidbody.AddForce(new Vector3(0, 0, (hor * -11000) * Time.deltaTime));
                 canJump = true; 
                 Debug.Log("canjump:" + canJump);
-                speed = true_speed;
+                varSpeed = trueSpeed;
         }
     }
 }
