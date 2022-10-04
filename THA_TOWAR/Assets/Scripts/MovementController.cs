@@ -30,7 +30,7 @@ public class MovementController : MonoBehaviour
             //Obtenemos la direccion del vector
             int direction = Direction(varInput);
             //añadimos un vector tridimencional a nuestro rigidbody para generar movimiento
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, (direction * varSpeed) * Time.deltaTime));
+            GetComponent<Rigidbody>().AddForce(new Vector3((direction * varSpeed) * Time.deltaTime, 0, 0));
         //Salto
         if((varSalto > 0) && canJump){
                 Debug.Log("Salto" + varSalto);
@@ -46,7 +46,7 @@ public class MovementController : MonoBehaviour
     {
         if (hor < 0){
             //Izquierda
-            return 1;
+            return -1;
         }
         else{
             if (hor == 0){
@@ -55,7 +55,7 @@ public class MovementController : MonoBehaviour
             }
             else{
                 //Derecha
-                return -1;
+                return 1;
             }
         }
     }
