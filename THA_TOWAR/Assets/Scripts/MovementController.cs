@@ -12,7 +12,7 @@ public class MovementController : MonoBehaviour
     public float varSpeed = 850f;
     public float trueSpeed = 850f;
     bool canJump;
-    public float jumpSpeed = 500f;
+    public float jumpSpeed = 1000f;
     public float jumpMovSpeed = 500f;
 
     void Start()
@@ -23,41 +23,19 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float varSalto;
+        //transform.Translate(Vector3.left * Time.deltaTime * velocidad);
         //Obtenemos el parametro de las teclas "A", "D", "<-" y "->"
         float varInput = Input.GetAxisRaw("Horizontal");
-        varSalto = Input.GetAxisRaw("Vertical");
-            //Obtenemos la direccion del vector
-            int direction = Direction(varInput);
             //añadimos un vector tridimencional a nuestro rigidbody para generar movimiento
-            GetComponent<Rigidbody>().AddForce(new Vector3((direction * varSpeed) * Time.deltaTime, 0, 0));
+            GetComponent<Rigidbody>().AddForce(new Vector3((varInput * varSpeed) * Time.deltaTime, 0, 0));
         //Salto
-        if((varSalto > 0) && canJump){
-                Debug.Log("Salto" + varSalto);
+        if(Input.GetButtonDown("Jump") && canJump){
+                Debug.Log("Salto");
                 canJump = false;
                 varSpeed = jumpMovSpeed;
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, (jumpSpeed * varSalto), 0));
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, (jumpSpeed * Time.deltaTime), 0));
         }
 
-    }
-
-    //Determinamos la direccion en la que ira el personaje
-    private int Direction(float hor)
-    {
-        if (hor < 0){
-            //Izquierda
-            return -1;
-        }
-        else{
-            if (hor == 0){
-                //Neutral
-                return 0;
-            }
-            else{
-                //Derecha
-                return 1;
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision) {
