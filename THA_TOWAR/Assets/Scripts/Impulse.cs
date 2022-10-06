@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Impulse : MonoBehaviour
 {
-    public float velocidad = 20;
+    public float velocidad = 10;
     private int limiteX = 50;
     // Start is called before the first frame update
     void Start()
