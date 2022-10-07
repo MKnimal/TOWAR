@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Button : MonoBehaviour
 
     public void funclick(){
         Debug.Log("Eureka");
-        Destroy(gameObject);
+        SceneManager.LoadScene("Escena2");
+
     }
 }
