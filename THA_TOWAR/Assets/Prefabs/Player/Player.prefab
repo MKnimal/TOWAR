@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6250742295734488208}
   - component: {fileID: 6250742295734488209}
-  - component: {fileID: 6250742295734488238}
+  - component: {fileID: 5349932926250054335}
   - component: {fileID: 6250742295734488239}
   - component: {fileID: 6250742295734488211}
   - component: {fileID: 6250742295734488210}
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &6250742295734488238
-BoxCollider:
+--- !u!136 &5349932926250054335
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,9 +98,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6278023, y: 1.8648449, z: 0.56811947}
-  m_Center: {x: 0.010194421, y: 0.01026386, z: -0.061264046}
+  m_Radius: 0.63321537
+  m_Height: 1.96
+  m_Direction: 1
+  m_Center: {x: -0.18, y: 2.9983994e-11, z: -0.0034395456}
 --- !u!54 &6250742295734488239
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,8 +110,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6250742295734488236}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 4
+  m_Mass: 10
+  m_Drag: 0.2
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -129,7 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71ef06721656bc4bbc708b1b1bcaa32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 17
+  acceleration: 40
+  jumpForce: 2000
+  jumpEnabled: 1
 --- !u!95 &6250742295734488210
 Animator:
   serializedVersion: 4
