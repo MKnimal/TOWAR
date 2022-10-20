@@ -67,5 +67,9 @@ public class MovementController : MonoBehaviour
             jumpEnabled = true;
             rAnimator.SetBool("Jumping", false);
         }
+        if (collision.transform.tag == "dead")
+        {
+            Destroy(gameObject);
+        }
     }
 }
