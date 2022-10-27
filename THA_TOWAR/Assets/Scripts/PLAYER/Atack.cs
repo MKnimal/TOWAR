@@ -8,7 +8,11 @@ public class Atack : MonoBehaviour
 
     [SerializeField] private float radioGolpe;
 
+    [SerializeField] LayerMask enemyLayers;
+
     [SerializeField] private float dañoGolpe;
+
+    private Color gizColor = Color.yellow;
 
     private Animator animator;
 
@@ -21,25 +25,25 @@ public class Atack : MonoBehaviour
         {
             Hit();
         }
+
     }
 
     private void Hit(){
         animator.SetTrigger("Att");
+        gizColor = Color.red;
 
-        Collider[] objetos = Physics.OverlapSphere(ControladorAtaque.position, radioGolpe);
-
+        //Collider[] objetos = Physics.OverlapSphere(ControladorAtaque.position, radioGolpe, enemyLayers);
+        /*
         foreach (Collider colisionador in objetos)
         {
-            if (colisionador.CompareTag("Enemy"))
-            {
-                colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
-            }
-        }
+                Debug.Log("Golpeaste a: " + colisionador.name);
+                 colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
+        }*/
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(ControladorAtaque.position, radioGolpe);
+        Gizmos.color = gizColor;
+        //Gizmos.DrawWireSphere(ControladorAtaque.position, radioGolpe);
     }
 }
