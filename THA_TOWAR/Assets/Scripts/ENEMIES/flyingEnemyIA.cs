@@ -12,6 +12,8 @@ public class flyingEnemyIA : MonoBehaviour
     private float post;
     private Vector3 normalRotation;
     private Vector3 inverseRotation;
+    private float distancia;
+    public float Activacion = 10;
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,12 @@ public class flyingEnemyIA : MonoBehaviour
     void FixedUpdate()
     {
         post = (Jugador.transform.position - transform.position).normalized.x;
-        EnemigoRB.AddForce((Jugador.transform.position - transform.position).normalized * speed);
+        distancia = Vector3.Distance(Jugador.transform.position, transform.position);
+
+        if (distancia < Activacion){
+            EnemigoRB.AddForce((Jugador.transform.position - transform.position).normalized * speed);
+        }
+        
         if (post != 0f){
                             if(post < 0){
                                 transform.eulerAngles = normalRotation;
