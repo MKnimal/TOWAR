@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemigo : MonoBehaviour
 {
     [SerializeField] private float vida;
+    [SerializeField] private float Defensa = 1;
     private Animator animator;
 
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class Enemigo : MonoBehaviour
     // Update is called once per frame
     public void TomarDaño(float dañoGolpe)
     {
-        vida -= dañoGolpe;
+        vida = vida - dañoGolpe;
 
         if(vida <= 0){
             animator.SetTrigger("ded");
@@ -26,5 +27,13 @@ public class Enemigo : MonoBehaviour
 
     private void Muerte(){
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log("Hubo una colision" + collision.transform.tag);
+        if (collision.transform.tag == "Weapon")
+        {
+            TomarDaño(Defensa);
+        }
     }
 }

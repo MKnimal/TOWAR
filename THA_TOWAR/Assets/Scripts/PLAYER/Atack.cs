@@ -23,22 +23,10 @@ public class Atack : MonoBehaviour
     private void FixedUpdate(){
         if (Input.GetButtonDown("Fire1"))
         {
-            Hit();
+            animator.SetTrigger("Att");
+            gizColor = Color.red;
         }
 
-    }
-
-    private void Hit(){
-        animator.SetTrigger("Att");
-        gizColor = Color.red;
-
-        //Collider[] objetos = Physics.OverlapSphere(ControladorAtaque.position, radioGolpe, enemyLayers);
-        /*
-        foreach (Collider colisionador in objetos)
-        {
-                Debug.Log("Golpeaste a: " + colisionador.name);
-                 colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
-        }*/
     }
 
     private void OnDrawGizmosSelected()
