@@ -8,7 +8,6 @@ public class enemigopru : MonoBehaviour
     private Rigidbody EnemigoRB;
     private GameObject Jugador;
     private Animator eAnimator;
-    private SpriteRenderer eRender;
     private float speed = 15;
     private float post;
     private Vector3 normalRotation;
@@ -22,7 +21,6 @@ public class enemigopru : MonoBehaviour
     {
         Debug.Log("Inicializando Enemigo");
         eAnimator = GetComponent<Animator>();
-        eRender = GetComponent<SpriteRenderer>();
         EnemigoRB = GetComponent<Rigidbody>();
         normalRotation = new Vector3(0, 0, 0);
         inverseRotation = new Vector3(0, 180, 0);
