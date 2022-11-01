@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - dead
+  - platamov
   layers:
   - Default
   - TransparentFX
