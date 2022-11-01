@@ -11,18 +11,22 @@ public class MovementController : MonoBehaviour
     private Rigidbody rPlayer;
     private Animator rAnimator;
     private SpriteRenderer rRender;
+        private Vector3 normalRotation;
+    private Vector3 inverseRotation;
 
     void Start()
     {
         Debug.Log("Inicializando");
         rPlayer = GetComponent<Rigidbody>();
         rAnimator = GetComponent<Animator>();
-        rRender = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        normalRotation = new Vector3(0, 180, 0);
+        inverseRotation = new Vector3(0, 0, 0);
         //**MOVIMIENTO LATERAL**
         //Obtenemos eje de movimiento
         float vert = Input.GetAxis("Horizontal");
@@ -34,11 +38,11 @@ public class MovementController : MonoBehaviour
                         //Verificamos si existe una direccion, en caso de que si, activamos el animador
                         if (vert != 0f){
                             if(vert < 0){
-                                rRender.flipX = true;
+                                transform.eulerAngles = normalRotation;
                                 rAnimator.SetBool("Moving", true);
                             }
                             if(vert > 0){
-                                rRender.flipX = false;
+                                transform.eulerAngles = inverseRotation;
                                 rAnimator.SetBool("Moving", true);
                             }
                         }else{
@@ -66,10 +70,6 @@ public class MovementController : MonoBehaviour
         if (collision.transform.tag == "ground"){
             jumpEnabled = true;
             rAnimator.SetBool("Jumping", false);
-        }
-        if (collision.transform.tag == "dead")
-        {
-            Destroy(gameObject);
         }
     }
 }

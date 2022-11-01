@@ -6,7 +6,8 @@ TagManager:
   tags:
   - ground
   - dead
-  - platamov
+  - Enemy
+  - Hammer
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
