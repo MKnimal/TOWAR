@@ -11,7 +11,10 @@ public class MovementController : MonoBehaviour
     private Rigidbody rPlayer;
     private Animator rAnimator;
     private SpriteRenderer rRender;
-        private Vector3 normalRotation;
+    [SerializeField] private GameObject GamePlayer;
+    [SerializeField] private Material material_a;
+    [SerializeField] private Material material_b;
+    private Vector3 normalRotation;
     private Vector3 inverseRotation;
 
     void Start()
@@ -19,7 +22,6 @@ public class MovementController : MonoBehaviour
         Debug.Log("Inicializando");
         rPlayer = GetComponent<Rigidbody>();
         rAnimator = GetComponent<Animator>();
-        
     }
 
     // Update is called once per frame
@@ -30,18 +32,19 @@ public class MovementController : MonoBehaviour
         //**MOVIMIENTO LATERAL**
         //Obtenemos eje de movimiento
         float vert = Input.GetAxis("Horizontal");
+        Render(vert);
         /*Generamos el Movimiento multiplicando el vector horizontal normalizado * la aceleracion
           y el eje de movimiento (esto para determinar la direccion)*/
         rPlayer.AddForce((Vector3.right).normalized * acceleration * vert);
 
-                        //**ANIMACION**
-                        //Verificamos si existe una direccion, en caso de que si, activamos el animador
-                        if (vert != 0f){
+        //**ANIMACION**
+        //Verificamos si existe una direccion, en caso de que si, activamos el animador
+        if (vert != 0f){
                             if(vert < 0){
                                 transform.eulerAngles = normalRotation;
                                 rAnimator.SetBool("Moving", true);
                             }
-                            if(vert > 0){
+                            if(vert > 0){ 
                                 transform.eulerAngles = inverseRotation;
                                 rAnimator.SetBool("Moving", true);
                             }
@@ -70,6 +73,18 @@ public class MovementController : MonoBehaviour
         if (collision.transform.tag == "ground"){
             jumpEnabled = true;
             rAnimator.SetBool("Jumping", false);
+        }
+    }
+
+    private void Render(float ert)
+    {
+        if (ert < 0)
+        {
+            GamePlayer.GetComponent<SpriteRenderer>().material = material_b;
+        }
+        if (ert > 0)
+        {
+            GamePlayer.GetComponent<SpriteRenderer>().material = material_a;
         }
     }
 }
