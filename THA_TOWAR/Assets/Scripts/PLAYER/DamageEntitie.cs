@@ -20,9 +20,9 @@ public class DamageEntitie : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) 
     {
-        Debug.Log("Hizo colision");
+        Debug.Log("Arma: Hizo colision");
         if (collision.transform.tag == "Enemy"){
-            Debug.Log("Toco un enemigo");
+            Debug.Log("Arma: Toco un enemigo");
             collision.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
         }
     }

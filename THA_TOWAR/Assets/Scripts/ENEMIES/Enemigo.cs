@@ -18,9 +18,8 @@ public class Enemigo : MonoBehaviour
     public void TomarDaño(float dañoGolpe)
     {
         vida = vida - dañoGolpe;
-
-        if(vida <= 0){
-            animator.SetTrigger("ded");
+        animator.SetTrigger("ded");
+        if (vida <= 0){
             Invoke("Muerte", 0.5f);
         }
     }
@@ -30,7 +29,7 @@ public class Enemigo : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log("Hubo una colision" + collision.transform.tag);
+        Debug.Log("Enemigo: Hubo una colision [" + collision.transform.tag + "]");
         if (collision.transform.tag == "Weapon")
         {
             TomarDaño(Defensa);

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6250742295734488209}
   - component: {fileID: 5349932926250054335}
   - component: {fileID: 6250742295734488239}
+  - component: {fileID: 6990358942727897365}
   - component: {fileID: 6250742295734488211}
   - component: {fileID: 6250742295734488210}
-  - component: {fileID: 6990358942727897365}
   - component: {fileID: 6258090909654802717}
   m_Layer: 0
   m_Name: Player
@@ -121,6 +121,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &6990358942727897365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250742295734488236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74e5294c55879145a43f62c5259f5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControladorAtaque: {fileID: 2843941379502351616}
+  radioGolpe: 0.64
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 72
+  "da\xF1oGolpe": 1
 --- !u!114 &6250742295734488211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,24 +177,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6990358942727897365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6250742295734488236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74e5294c55879145a43f62c5259f5cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControladorAtaque: {fileID: 2843941379502351616}
-  radioGolpe: 0.64
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 72
-  "da\xF1oGolpe": 1
 --- !u!114 &6258090909654802717
 MonoBehaviour:
   m_ObjectHideFlags: 0

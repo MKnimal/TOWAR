@@ -19,7 +19,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Inicializando");
+        Debug.Log("Inicializando Player");
         rPlayer = GetComponent<Rigidbody>();
         rAnimator = GetComponent<Animator>();
     }

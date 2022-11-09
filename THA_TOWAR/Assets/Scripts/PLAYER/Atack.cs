@@ -20,7 +20,7 @@ public class Atack : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate(){
+    private void Update(){
         if (Input.GetButtonDown("Fire1"))
         {
             animator.SetTrigger("Att");
