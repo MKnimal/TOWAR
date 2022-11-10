@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    //Variables
     public float acceleration = 15f;
     public float jumpForce = 20f;
     public bool jumpEnabled = true;
+    //Componentes 
     private Rigidbody rPlayer;
     private Animator rAnimator;
-    private SpriteRenderer rRender;
+    private AudioSource rAudioSource;
     [SerializeField] private GameObject GamePlayer;
     [SerializeField] private Material material_a;
     [SerializeField] private Material material_b;
+    //Vectores
     private Vector3 normalRotation;
     private Vector3 inverseRotation;
 
@@ -22,6 +25,7 @@ public class MovementController : MonoBehaviour
         Debug.Log("Inicializando Player");
         rPlayer = GetComponent<Rigidbody>();
         rAnimator = GetComponent<Animator>();
+        rAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,10 +47,12 @@ public class MovementController : MonoBehaviour
                             if(vert < 0){
                                 transform.eulerAngles = normalRotation;
                                 rAnimator.SetBool("Moving", true);
+                                rAudioSource.Play();
                             }
                             if(vert > 0){ 
                                 transform.eulerAngles = inverseRotation;
                                 rAnimator.SetBool("Moving", true);
+                                rAudioSource.Play();
                             }
                         }else{
                             rAnimator.SetBool("Moving", false);
