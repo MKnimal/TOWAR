@@ -47,12 +47,12 @@ public class MovementController : MonoBehaviour
                             if(vert < 0){
                                 transform.eulerAngles = normalRotation;
                                 rAnimator.SetBool("Moving", true);
-                                rAudioSource.Play();
+                                Audio();
                             }
                             if(vert > 0){ 
                                 transform.eulerAngles = inverseRotation;
                                 rAnimator.SetBool("Moving", true);
-                                rAudioSource.Play();
+                                Audio();
                             }
                         }else{
                             rAnimator.SetBool("Moving", false);
@@ -91,6 +91,12 @@ public class MovementController : MonoBehaviour
         if (ert > 0)
         {
             GamePlayer.GetComponent<SpriteRenderer>().material = material_a;
+        }
+    }
+
+    private void Audio(){
+        if(!rAudioSource.isPlaying && jumpEnabled){
+        rAudioSource.Play();
         }
     }
 }

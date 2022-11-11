@@ -5,15 +5,11 @@ using UnityEngine;
 public class Atack : MonoBehaviour
 {
     [SerializeField] private Transform ControladorAtaque;
-
     [SerializeField] private float radioGolpe;
-
     [SerializeField] LayerMask enemyLayers;
-
     [SerializeField] private float dañoGolpe;
-
+    [SerializeField] private AudioSource rAudioSource;
     private Color gizColor = Color.yellow;
-
     private Animator animator;
 
     private void Start(){
@@ -23,6 +19,7 @@ public class Atack : MonoBehaviour
     private void Update(){
         if (Input.GetButtonDown("Fire1"))
         {
+            rAudioSource.Play();
             animator.SetTrigger("Att");
             gizColor = Color.red;
         }
