@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MV : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class MV : MonoBehaviour
     private SpriteRenderer rRender;
     private Vector3 normalRotation;
     private Vector3 inverseRotation;
+    public TextMeshProUGUI texto;
+    public GameObject plataforma;
+    public float limiteizqx = -0.8143349f;
+    public float limitederx = 19.16567f;
 
     void Start()
     {
@@ -93,4 +98,6 @@ public class MV : MonoBehaviour
             transform.parent = null;
         }
     }
+    
+
 }
