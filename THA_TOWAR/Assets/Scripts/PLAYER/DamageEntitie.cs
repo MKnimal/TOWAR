@@ -8,18 +8,6 @@ public class DamageEntitie : MonoBehaviour
     [SerializeField] private AudioSource rAudioSource1;
     [SerializeField] private AudioSource rAudioSource2;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision collision) 
     {
         Debug.Log("Arma: Hizo colision");
