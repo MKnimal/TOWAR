@@ -8,7 +8,6 @@ public class MusicTool : MonoBehaviour
     [SerializeField] private AudioSource rAudioSource2;
     private GameObject Jugador;
     private float distancia;
-    [SerializeField] private bool Activo = false;
     [SerializeField] private float Aggro = 10.0f;
     // Start is called before the first frame update
     void Start()
@@ -17,12 +16,19 @@ public class MusicTool : MonoBehaviour
         Jugador = GameObject.Find("Player");
     }
 
-    private void OnCollisionEnter(Collision collision) 
+    void FixedUpdate()
     {
-        Debug.Log("MusicBox: Hizo colision");
-        if (collision.transform.tag == "Player"){
-            rAudioSource1.Stop();
-            rAudioSource2.Play();
+        distancia = Vector3.Distance(Jugador.transform.position, transform.position);
+
+        if (distancia < Aggro){
+            Debug.Log("Estas en zona de combate");
+            if (rAudioSource1.isPlaying)
+            { rAudioSource1.Stop(); }
+        }
+
+        if (distancia > Aggro){
+            if (!rAudioSource1.isPlaying)
+            { rAudioSource1.Play(); }
         }
     }
 }
