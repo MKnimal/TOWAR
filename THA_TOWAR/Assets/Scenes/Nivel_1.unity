@@ -8933,6 +8933,7 @@ MonoBehaviour:
   Aggro: 10
   rMusic: {fileID: 1330849248}
   rAudio: {fileID: 1330849250}
+  Delay: 400
 --- !u!82 &1330849250
 AudioSource:
   m_ObjectHideFlags: 0

@@ -11,10 +11,12 @@ public class Boss : MonoBehaviour
     private Animator eAnimator;
     private float post;
     private float distancia;
+    private bool Soundflag = true;
     [SerializeField] private bool Activo = false;
     [SerializeField] private float Aggro = 10.0f;
     [SerializeField] private AudioSource rMusic;
     [SerializeField] private AudioSource rAudio;
+    [SerializeField] private int Delay = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -38,13 +40,17 @@ public class Boss : MonoBehaviour
 
         if (Activo == true){
                 eAnimator.SetTrigger("Boot");
+                if (Soundflag == true)
+                { 
+                Soundflag = false;
                 music();  
+                }
         }
 
     }
 
     async void music(){
-        await Task.Delay(1000);
+        await Task.Delay(Delay);
         if (!rMusic.isPlaying)
         { 
         rAudio.Play(); 
