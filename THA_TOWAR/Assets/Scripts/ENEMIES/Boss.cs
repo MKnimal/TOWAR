@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Boss : MonoBehaviour
 {
@@ -32,13 +33,22 @@ public class Boss : MonoBehaviour
 
         if (distancia < Aggro){
             Activo = true;
+            Debug.Log("Jefe activado");
         }
 
         if (Activo == true){
-            Debug.Log("Jefe activado");
-            if (!rMusic.isPlaying)
-            { rMusic.Play(); }
+                eAnimator.SetTrigger("Boot");
+                music();  
         }
 
+    }
+
+    async void music(){
+        await Task.Delay(1000);
+        if (!rMusic.isPlaying)
+        { 
+        rAudio.Play(); 
+        await Task.Delay(1000);
+        rMusic.Play();}
     }
 }

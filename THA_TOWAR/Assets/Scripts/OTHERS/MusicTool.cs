@@ -5,7 +5,6 @@ using UnityEngine;
 public class MusicTool : MonoBehaviour
 {
     [SerializeField] private AudioSource rAudioSource1;
-    [SerializeField] private AudioSource rAudioSource2;
     private GameObject Jugador;
     private float distancia;
     [SerializeField] private float Aggro = 10.0f;
@@ -21,7 +20,6 @@ public class MusicTool : MonoBehaviour
         distancia = Vector3.Distance(Jugador.transform.position, transform.position);
 
         if (distancia < Aggro){
-            Debug.Log("Estas en zona de combate");
             if (rAudioSource1.isPlaying)
             { rAudioSource1.Stop(); }
         }
