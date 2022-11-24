@@ -35,7 +35,6 @@ public class Boss : MonoBehaviour
 
         if (distancia < Aggro){
             Activo = true;
-            Debug.Log("Jefe activado");
         }
 
         if (Activo == true){
