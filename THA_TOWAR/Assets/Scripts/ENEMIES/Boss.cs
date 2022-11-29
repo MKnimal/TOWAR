@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Threading.Tasks;
 
 public class Boss : MonoBehaviour
@@ -17,6 +17,12 @@ public class Boss : MonoBehaviour
     [SerializeField] private AudioSource rMusic;
     [SerializeField] private AudioSource rAudio;
     [SerializeField] private int Delay = 500;
+    [SerializeField] private GameObject[] EnemyObject;
+    [SerializeField] private float startAtack = 2f;
+    [SerializeField] private float intervalAtack = 1.5f;
+    [SerializeField] private float[] ejeX = new float[2] {0, 0};
+    [SerializeField] private float[] ejeY = new float[2] {0, 0};
+    [SerializeField] private float ejeZ = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,18 +48,45 @@ public class Boss : MonoBehaviour
                 if (Soundflag == true)
                 { 
                 Soundflag = false;
-                music();  
+                asyncEvents();  
                 }
         }
 
     }
 
-    async void music(){
+    async void asyncEvents(){
         await Task.Delay(Delay);
         if (!rMusic.isPlaying)
         { 
         rAudio.Play(); 
         await Task.Delay(1000);
-        rMusic.Play();}
+        rMusic.Play();
+        }
+        InvokeRepeating("randomAtack", startAtack, intervalAtack);
+    }
+
+    void randomAtack(){
+        int random = Random.Range(1, 3);
+        Debug.Log(random);
+        if (random == 1){
+            spAtack1();
+        }else
+        {
+            spAtack2();
+        }
+    }
+
+    void spAtack1(){
+        eAnimator.SetTrigger("at1");
+    }
+
+    void spAtack2(){
+        eAnimator.SetTrigger("at2");
+
+        Vector3 posicion = new Vector3(Random.Range(ejeX[0], ejeX[1]), Random.Range(ejeY[0], ejeY[1]), ejeZ);    
+        //Necesita 2 parametros, desde que numero y hasta que numero X, Y, Z
+        int index = Random.Range(0, EnemyObject.Length);
+        //Necesita que le mandes un parametro con que va a instanciar, la posicion y la direccion
+        Instantiate(EnemyObject[index], posicion, EnemyObject[index].transform.rotation);
     }
 }

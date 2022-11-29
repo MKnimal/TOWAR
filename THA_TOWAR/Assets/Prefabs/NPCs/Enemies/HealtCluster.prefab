@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 970650854318283431}
   - component: {fileID: 7461052212112822598}
   m_Layer: 6
-  m_Name: EnemyCLuster
+  m_Name: HealtCluster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
